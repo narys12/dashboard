@@ -29,8 +29,8 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
-import '../styles/styles.scss';
-import '../styles/headings.css';
+import { SearchComponent } from './_common/header/search/search.component';
+import { HeaderComponent } from './_common/header/header.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -54,7 +54,9 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    SearchComponent,
+    HeaderComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

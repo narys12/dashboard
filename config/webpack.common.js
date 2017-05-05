@@ -164,7 +164,12 @@ module.exports = function (options) {
          */
         {
           test: /\.scss$/,
-          use: ['to-string-loader', 'css-loader', 'sass-loader'],
+          use: ['to-string-loader', 'css-loader', 'sass-loader', 
+          {
+          loader: 'sass-resources-loader',
+          options: {
+            resources: ['./src/_variables.scss', './src/_common/_styles/_mixins.scss']
+          }}],
           exclude: [helpers.root('src', 'styles')]
         },
 
