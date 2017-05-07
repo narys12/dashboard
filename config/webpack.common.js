@@ -161,6 +161,9 @@ module.exports = function (options) {
           exclude: [helpers.root('src', 'styles')]
         },
 
+        { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+        { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+
         /*
          * to string and sass loader support for *.scss files (from Angular components)
          * Returns compiled css content as string
@@ -197,13 +200,9 @@ module.exports = function (options) {
           test: /\.(jpg|png|gif)$/,
           use: 'file-loader'
         },
-
-        /* File loader for supporting fonts, for example, in CSS files.
-        */
-        { 
-          test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
-          use: 'file-loader'
-        }
+        
+        { test: /bootstrap[\/\\]dist[\/\\]js[\/\\]umd[\/\\]/, 
+          loader: 'imports-loader?jQuery=jquery' },
 
       ],
 
