@@ -20,6 +20,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const ngcWebpack = require('ngc-webpack');
+const bootstrapEntryPoint = require('../webpack.bootstrap.config.js');
+
 
 /*
  * Webpack Constants
@@ -39,6 +41,7 @@ const METADATA = {
  */
 module.exports = function (options) {
   isProd = options.env === 'production';
+  var bootstrapConfig = isProd ? bootstrapEntryPoint.prod : bootstrapEntryPoint.dev;
   return {
 
     /*
@@ -59,6 +62,7 @@ module.exports = function (options) {
     entry: {
 
       'polyfills': './src/polyfills.browser.ts',
+      bootstrap: bootstrapConfig,
       'main':      AOT ? './src/main.browser.aot.ts' :
                   './src/main.browser.ts'
 
@@ -168,7 +172,9 @@ module.exports = function (options) {
           {
           loader: 'sass-resources-loader',
           options: {
-            resources: ['./src/_variables.scss', './src/_common/_styles/_mixins.scss']
+            resources: ['./src/_variables.scss', 
+            './src/_common/_styles/_mixins.scss',
+            './node_modules/bootstrap/scss/_variables.scss']
           }}],
           exclude: [helpers.root('src', 'styles')]
         },
