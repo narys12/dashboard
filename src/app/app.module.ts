@@ -31,6 +31,11 @@ import { XLargeDirective } from './home/x-large';
 
 import { SearchComponent } from './_common/header/search/search.component';
 import { HeaderComponent } from './_common/header/header.component';
+import { NavComponent } from './_common/header/nav/nav.component';
+import { ProfileComponent } from './_common/header/nav/profile/profile.component';
+import { NotificationsComponent } from './_common/header/nav/notifications/notifications.component';
+import { CollapseComponent } from './_common/header/collapse/collapse.component';
+import { ButtonsComponent } from './_common/header/buttons/buttons.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -56,7 +61,12 @@ type StoreType = {
     NoContentComponent,
     XLargeDirective,
     SearchComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavComponent,
+    ProfileComponent,
+    NotificationsComponent,
+    CollapseComponent,
+    ButtonsComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

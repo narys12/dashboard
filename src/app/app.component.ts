@@ -16,7 +16,7 @@ import { AppState } from './app.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    'main.scss'
+    'app.component.scss'
   ],
   templateUrl: 'app.component.html'
 })

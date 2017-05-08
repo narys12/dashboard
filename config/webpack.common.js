@@ -110,6 +110,14 @@ module.exports = function (options) {
          * See: https://github.com/shlomiassaf/ng-router-loader
          */
         {
+          test: /\.js$/,
+          exclude: [/node_modules/],
+          use: [{
+            loader: 'babel-loader',
+            options: { presets: ['es2015'] },
+          }],
+        },
+        {
           test: /\.ts$/,
           use: [
             {
@@ -175,9 +183,11 @@ module.exports = function (options) {
           {
           loader: 'sass-resources-loader',
           options: {
-            resources: ['./src/_variables.scss', 
+            resources: [
+            './src/_variables.scss', 
             './src/_common/_styles/_mixins.scss',
-            './node_modules/bootstrap/scss/_variables.scss']
+            './node_modules/bootstrap/scss/_variables.scss',
+            './src/_main.scss']
           }}],
           exclude: [helpers.root('src', 'styles')]
         },
